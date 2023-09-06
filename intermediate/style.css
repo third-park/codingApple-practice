@@ -1,0 +1,36 @@
+@media(min-width:1200px){
+  .container{display: flex;flex-flow: row nowrap;text-align: center;}
+  .box{padding:50px;margin: 20px;}
+  .box>span:first-child{font-weight: 700;}
+  span{display: block;margin-top: 20px;}
+}
+@media(max-width:1119px){
+  .container{display: flex;flex-flow: row wrap;text-align: center;}
+  .box{padding:50px;margin: 20px;width:30%;display: flex;flex-flow: column nowrap;}
+  .box>span:first-child{font-weight: 700;}
+  span{display: block;margin-top: 20px;}
+}
+@media(max-width:767px){
+  .container{display: flex;flex-flow: column nowrap;}
+  .box{padding:50px;margin: 20px;}
+}
+
+/* float 이용 */
+/* .explain-container>div {
+  float : left;
+  width : 25%;
+}
+
+@media screen and (max-width : 992px) {
+  .explain-container>div {
+    float : left;
+    width : 50%;
+  }
+}
+
+@media screen and (max-width : 768px) {
+  .explain-container>div {
+    float : none;
+    width : 100%;
+  }
+} */
