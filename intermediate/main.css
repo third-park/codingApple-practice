@@ -1,0 +1,132 @@
+header,
+main,
+footer {
+  width: 100vw;
+}
+
+header {
+  background: linear-gradient(skyblue, darkblue);
+  height: 500px;
+}
+
+div:has(.phone-img), .main-top, .main-bottom, footer{
+  margin: 0 auto;
+  width: 80rem;
+}
+
+div:has(.phone-img){
+  height: inherit;
+  position: relative;
+}
+.phone-img {
+  background: url(./image/iphone.png) no-repeat center/cover;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.header-text {
+  color: #FFF;
+  width: 500px;
+  padding: 50px 80px;
+}
+.header-text>h2 {
+  font-weight: 700;
+  font-size: 30px;
+}
+.header-text>p {
+  font-weight: 400;
+  margin-top: 2em;
+}
+a {
+  display: block;
+  margin-top: 1em;
+  padding: 15px;
+  background-color: dimgray;
+  color: #FFF;
+  width: fit-content;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.main-top{
+  margin: 50px auto;
+}
+.main-top>:is(h2, span, a){
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+.main-top>h2{
+  font-weight: 700;
+}
+.main-top>a{
+  margin: 1em auto;
+}
+.main-middle{
+  background-color: cornflowerblue;
+  text-align: center;
+  padding: 50px 0;
+  color: #FFF;
+}
+.offer-icon_box{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.offer-wrap{
+  width: 20%;
+}
+.icon{
+  background-color: #FFF;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+.main-bottom{
+  text-align: center;
+  padding: 50px 0;
+}
+.portfolio-wrap{
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 20px;
+}
+.portfolio-item{
+  position: relative;
+}
+.portfolio-item>:where(h3, p){
+  text-align: left;
+  color: #FFF;
+  padding-left: 30px;
+}
+.portfolio-item>h3{
+  padding-top: 50px;
+}
+.portfolio-item>p{
+  margin-top: 30px;
+}
+.portfolio-item:nth-of-type(1){background: url(./image/portfolio-1.jpg)no-repeat center/cover;width: 50%;height: 400px;}
+.portfolio-item:nth-of-type(2){background: url(./image/portfolio-2.jpg)no-repeat center/cover;width: 50%;height: 400px;}
+.portfolio-item:nth-of-type(3){background: url(./image/portfolio-3.jpg)no-repeat center/cover;width: 50%;height: 400px;}
+.portfolio-item:nth-of-type(4){background: url(./image/portfolio-4.jpg)no-repeat center/cover;width: 50%;height: 400px;}
+
+.white-box{
+  transition: border 300ms ease-in-out;
+  position: absolute;
+  width: 100%;
+  border: 0px solid #FFF;
+  z-index: 2;
+  height: 100%;
+}
+/* :is(.portfolio-item:nth-of-type(2))>.white-box{background-color: wheat;} */
+.white-box:hover{
+  border: 25px solid #FFF;
+  /* width: calc(100% - 50px);
+  height: calc(100% - 50px); */
+}
