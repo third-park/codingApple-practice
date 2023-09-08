@@ -1,0 +1,76 @@
+@use 'reset';
+
+section{
+  width: 50vw;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+%리스트박스 {
+  width: 100%;
+  padding: 30px 20px;
+  border: 1px solid #e1e1e4;
+}
+
+@mixin 알림창박스($배경색, $글자색) {
+  background-color: $배경색;
+  color: $글자색;
+  border-radius: 10px;
+  width: 100%;
+  padding:40px 20px;
+  margin-top: 20px;
+}
+
+%col-6{
+  width: 50%;
+}
+%col-4{
+  width: 33.33%;
+}
+%col-3{
+  width: 25%;
+}
+@mixin 열세팅($padding, $bg-color, $border-color){
+  padding:$padding;
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+}
+
+li{
+  @extend %리스트박스;
+  &.active{
+    background-color: darkcyan;
+    color: white;
+  }
+  &:hover{
+    background-color: rgb(144, 210, 210);
+  }
+}
+
+.alert{
+  &:nth-of-type(1){
+    @include 알림창박스(rgb(112, 192, 112),green);
+  }
+  &:nth-of-type(2){
+    @include 알림창박스(rgb(104, 104, 215),blue);
+  }
+  &:nth-of-type(3){
+    @include 알림창박스(rgb(232, 232, 117),orange);
+  }
+  p{
+    opacity: 1;
+    font-size: 20px;
+  }
+}
+
+.row{
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 10px;
+
+  div{
+    @extend %col-6;
+    @include 열세팅(30px, burlywood, red);
+  }
+}
+
