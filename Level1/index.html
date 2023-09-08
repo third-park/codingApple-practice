@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .alert{
+      width: 300px;
+      margin-top: 10px;
+      border-radius: 15px;
+      background-color: aquamarine;
+      padding: 30px;
+      /* display: none; */
+    }
+
+    .delete-btn{
+      width: 20px;
+      height: 20px;
+      float: right;
+      list-style: none;
+      background-color:transparent;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="alert">알림창 <button class="delete-btn"></button></div>
+  <button onclick="showAlert()">버튼</button>
+
+  <script>
+    function showAlert(){
+      const alert = document.querySelector('.alert');
+      alert.style.display = 'block';
+
+      let newDiv = document.createElement('div');
+      newDiv.textContent = '새 알림창';
+
+      newDiv.classList.add('alert')
+
+      let deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'X';
+      deleteBtn.classList.add('delete-btn');
+      deleteBtn.addEventListener('click', ()=>document.body.removeChild(newDiv))
+
+      newDiv.appendChild(deleteBtn);
+
+      document.body.appendChild(newDiv);
+    }
+  </script>
+</body>
+</html>
