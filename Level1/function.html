@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .btn {
+    width: 100px;
+    height: 50px;
+    margin: 50px;
+    border: 0;
+    border-radius: 5px;
+    background-color: antiquewhite;
+  }
+
+  .btn:hover {
+    background-color: burlywood;
+  }
+
+  .alert {
+    width: 500px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: darkcyan;
+    margin-left: 50px;
+    color: #FFF;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    display: none;
+  }
+
+  .alert>button {
+    border: none;
+    background-color: darkcyan;
+    padding: 10px;
+    transform: scale(1.5);
+    color: #FFF;
+  }
+</style>
+
+<body>
+  <section>
+    <button class="btn id-btn">ID</button>
+    <button class="btn pw-btn">PW</button>
+    <div class="alert">
+      <p></p>
+      <button>X</button>
+    </div>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll(".btn");
+    const alert = document.querySelector(".alert");
+    const text = document.querySelector(".alert>p")
+    const deleteBtn = document.querySelector(".alert>button");
+
+    function showAlert(a) {
+      text.innerHTML = `${a}를 입력하세요`;
+      alert.style.display = "flex";
+    }
+    buttons.forEach((elem)=>{
+      elem.addEventListener('click',()=>{
+        event.target.classList.contains("id-btn") ? showAlert('아이디') : showAlert('비밀번호');
+      })
+    })
+
+    deleteBtn.addEventListener('click', function() {
+      this.parentNode.style.display = 'none';
+    })
+  </script>
+</body>
+
+</html>
