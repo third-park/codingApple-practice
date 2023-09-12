@@ -11,6 +11,20 @@
     width: 100vw;
     height: 100vh;
   }
+  .alert {
+    width:fit-content;
+    padding: 50px;
+    text-align: center;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    background-color: crimson;
+    color: #FFF;
+    display: none;
+  }
+  .alert.is-active{
+    display: block;
+  }
   .black-bg {
   width : 100%;
   height : 100%;
@@ -24,6 +38,10 @@
   border-radius: 5px;
   padding: 30px;
   display: none;
+  position: absolute;
+  top: 450px;
+  left: 50%;
+  width: 250px;
 }
 .white-bg.active{
   display: block;
@@ -34,15 +52,34 @@
   height: 50px;
   border: 0;
   border-radius: 10px;
-  margin: 25% auto;
+  margin: 600px auto;
+}
+:where(.id-box, .pw-box)>input{
+  float: right;
+  width: 80%;
+}
+:where(.id-box, .pw-box)>label{
+  display: inline-block;
 }
 </style>
 <body>
   <section>
     <div class="black-bg">
+      <div class="alert">빈칸을 채워주세요</div>
       <div class="white-bg">
         <h4>로그인하세요</h4>
-        <button class="btn btn-danger" id="close">닫기</button>
+        <form action="success.html">
+          <div class="id-box">
+            <label for="ID">ID</label>
+            <input type="text" id="ID" value="" name="아이디">
+          </div>
+          <div class="pw-box">
+            <label for="PW">PW</label>
+            <input type="password" id="PW" value="" name="비밀번호">
+          </div>
+          <button class="submit-btn" type="submit">전송</button>
+          <button class="btn btn-danger" type="button" id="close">닫기</button>
+        </form>
       </div>
       <button class="login-btn">로그인</button>
     </div> 
