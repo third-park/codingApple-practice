@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    section{
+      margin-top: 50px;
+    }
+    button{
+      border: none;
+      border-radius: 5px;
+      width: 60px;
+      padding: 10px;
+      background-color:lightcoral;
+      color: #FFF;
+    }
+    button:hover{
+      font-weight: 700;
+      outline:2px solid coral;
+    }
+    button:active{
+      background-color: #111;
+      outline: #111;
+    }
+    .creation-box{
+      width: 1000px;
+      height: 300px;
+      border: 1px solid #111;
+      border-radius: 10px;
+      margin-top: 20px;
+      padding: 10px;
+    }
+    .creation-box span{
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .result, .total{
+      border: 1px soild #111;
+      width: fit-content;
+      height: 20px;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  </style>
+  <script type="module" src="./js/task.js" defer></script>
+</head>
+<body>
+  <section>
+    <h1>.Task1</h1>
+    <button type="button" class="run">실행</button>
+    <button type="button" id="reset">리셋</button>
+    <div class="creation-box"></div>
+  </section>
+  <section>
+    <h1>.Task2</h1>
+    <button type="button" class="run">실행</button>
+    <div class="creation-box"></div>
+  </section>
+  <section>
+    <h1>.Task3</h1>
+    <div>
+      <label for="one">1차 점수</label>
+      <input type="text" id="one">
+    </div>
+    <div>
+      <label for="two">2차 점수</label>
+      <input type="text" id="two">
+    </div>
+    <div class="total">'총합'</div>
+    <div class="result">'결과값'</div>
+  </section>
+  <section>
+    <h1>.Task4</h1>
+    ?
+  </section>
+</body>
+</html>
