@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>level2 과제 구현</title>
+  <style>
+    *{box-sizing: border-box;}
+    section{
+      border: 1px solid #111;
+      padding: 100px;
+      margin-top: 100px;
+    }
+    .calc>input[type="number"]{
+      width: 100px;
+    }
+    .coffee-volume{
+      width: 80px;
+      vertical-align: top;
+    }
+    .coffee-volume::placeholder{
+      float: right;
+    }
+  </style>
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <section>
+    <div class="guide">
+      <span>첫 예금이 5만원 이상이면 이율 20%</span>
+      <span>첫 예금액이 5만원 미만이면 15%입니다.</span>
+    </div>
+    <div class="calc">
+      <input type="number">
+      <span>예금액</span>
+      <span>예치기간 2년</span>
+      <span>총액</span>
+    </div>
+  </section>
+  <section>
+    <p>A: 커피 리필 2/3 씩 두번 해주는 카페라는구먼?</p>
+    <p>B: 그럼 <input type="text" class="coffee-volume" placeholder="ml">만큼 마시면 합해서 얼마나 마실 수 있는겨?</p>
+    <p>A: 보자..<span class="coffee">${변수}</span>만큼 최대한 마시면 <span class="total">${변수}</span> 마시겠구만? 화장실 디지게 가겠구먼 허허</p>
+  </section>
+  <section></section>
+</body>
+</html>
