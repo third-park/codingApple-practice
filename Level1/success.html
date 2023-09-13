@@ -48,6 +48,9 @@
       padding: 10px;
       margin-top: 10px;
     }
+    input::-webkit-inner-spin-button{
+      display: none;
+    }
   </style>
   <script type="module" src="./js/task.js" defer></script>
 </head>
@@ -67,18 +70,14 @@
     <h1>.Task3</h1>
     <div>
       <label for="one">1차 점수</label>
-      <input type="text" id="one">
+      <input type="number" id="one">
     </div>
     <div>
       <label for="two">2차 점수</label>
-      <input type="text" id="two">
+      <input type="number" id="two">
     </div>
     <div class="total">'총합'</div>
     <div class="result">'결과값'</div>
-  </section>
-  <section>
-    <h1>.Task4</h1>
-    ?
   </section>
 </body>
 </html>
