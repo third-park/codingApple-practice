@@ -21,6 +21,9 @@
     .coffee-volume::placeholder{
       float: right;
     }
+    .modal>div{
+      display: none;
+    }
   </style>
   <script type="module" src="./js/app.js"></script>
 </head>
@@ -39,9 +42,14 @@
   </section>
   <section>
     <p>A: 커피 리필 2/3 씩 두번 해주는 카페라는구먼?</p>
-    <p>B: 그럼 <input type="text" class="coffee-volume" placeholder="ml">만큼 마시면 합해서 얼마나 마실 수 있는겨?</p>
-    <p>A: 보자..<span class="coffee">${변수}</span>만큼 최대한 마시면 <span class="total">${변수}</span> 마시겠구만? 화장실 디지게 가겠구먼 허허</p>
+    <p>B: 그럼 <input type="text" class="coffee-volume" placeholder="ml">ml만큼 마시면 합해서 얼마나 마실 수 있는겨?</p>
+    <p>A: 보자..<span class="coffee"></span>ml 시켜서 최대한 마시면 <span class="total"></span>ml를 마시겠구만? 화장실 디지게 가겠구먼 허허</p>
   </section>
-  <section></section>
+  <section class="modal">
+    <button>클릭 시 등장</button>
+    <div>
+      <span>5</span>초 뒤 삭제
+    </div>
+  </section>
 </body>
 </html>
