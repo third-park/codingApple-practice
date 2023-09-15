@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캐러셀 제작</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .slide-container {
+      width: 300vw;
+      transition: all 1s;
+    }
+    .slide-box {
+      width: 100vw;
+      float: left;
+    }
+    .slide-box img {
+      width: 100%;
+    }
+    button{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      top: 300px;
+      border: none;
+      z-index: 10;
+    }
+    .prev-btn{
+      left: 0;
+    }
+    .next-btn{
+      right: 0;
+    }
+  </style>
+  <script type="module" src="./js/캐러셀.js" defer></script>
+</head>
+<body>
+  <button class="prev-btn">이전</button>
+  <div style="overflow: hidden">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="car1.png">
+      </div>
+      <div class="slide-box">
+        <img src="car2.png">
+      </div>
+      <div class="slide-box">
+        <img src="car3.png">
+      </div>
+    </div>
+  </div>
+  <button class="next-btn">다음</button>
+</body>
+</html>

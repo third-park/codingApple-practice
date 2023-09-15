@@ -68,3 +68,22 @@ function interval(){
 function timeout(){
   modalBox.style.display = "none";
 }
+
+
+const returnSection = document.querySelector('.return');
+const returnInput = document.querySelectorAll('.return>input');
+
+const [minute, seconds] = [...returnInput];
+
+ 
+function conversionToMs(min, sec){
+  let minToMs = min * 60 * 1000;
+  let secToMs = sec * 1000;
+
+  return minToMs + secToMs;
+}
+
+returnSection.addEventListener('change',()=>{
+  const span = document.querySelector('.return>span');
+  span.textContent = conversionToMs(minute.value, seconds.value);
+})
