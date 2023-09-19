@@ -87,3 +87,10 @@ returnSection.addEventListener('change',()=>{
   const span = document.querySelector('.return>span');
   span.textContent = conversionToMs(minute.value, seconds.value);
 })
+
+//할인적용금액 계산기
+//할인율 10% , 첫 구매시 5% 추가 할인
+//구매금액 입력하면 
+//금액 * 0.1 => 10% 가격 and 첫구매면 금액 * 0.15
+//구매금액 - 할인금액 => 최종 금액을 표시
+//소수점 없도록!! 반올림ㄱㄱ
