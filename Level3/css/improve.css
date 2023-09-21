@@ -1,0 +1,34 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+section{
+  border: 2px solid #111;
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.findName{
+  position: relative;
+}
+.name{
+  width: 100%;
+  background-color:wheat;
+}
+.name>li{
+  display: inline-block;
+  padding: 10px;
+}
+.findName>:where(input, span){
+  position: absolute;
+  left: -120px;
+}
+.findName>input{
+  top: 0;
+}
+.findName>span{
+  top: 40px;
+}
