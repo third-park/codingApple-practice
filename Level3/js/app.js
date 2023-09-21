@@ -10,37 +10,30 @@ price.textContent = `${car2.price[1]}`;
 const select1 = document.querySelector('.form-select');
 const container = document.querySelector('.container');
 const button = document.querySelector('button');
+const optionSelect = document.querySelector('.option');
+
+let shirt = [90, 95, 100, 105];
+let pants = [26, 28, 30, 32, 34];
 
 deleteElem = (e) => e.remove();
-createSize = () => {
-  let size = /*html*/`
-  <select class="pants option">
-    <option>28</option>
-    <option>30</option>
-  </select>`
-  
-  container.insertAdjacentHTML('beforeend', size);
-}
-createShirt = () => {
-  let shirt = /*html*/`
-  <select class="size option">
-    <option>90</option>
-    <option>100</option>
-  </select>`
-
-  container.insertAdjacentHTML('beforeend', shirt);
-}
 
 select1.addEventListener('input',function(){
-  const pants = document.querySelector('.pants');
-  const shirt = document.querySelector('.size');
 
-  pants ? deleteElem(pants) : shirt ? deleteElem(shirt) : null;
+  optionSelect.classList.add('hide');
+  optionSelect.innerHTML = '';
   
   if(this.value === select1[1].value){
-    createShirt();
+    optionSelect.classList.remove('hide');
+    shirt.forEach(function(elem, index){
+      let shirtSize = `<option>${elem}</option>`;
+      optionSelect.insertAdjacentHTML('beforeend', shirtSize);
+    })
   }else if(this.value === select1[2].value){
-    createSize();
+    optionSelect.classList.remove('hide');
+    pants.forEach((elem)=>{
+      let pantsSize = `<option>${elem}</option>`;
+      optionSelect.insertAdjacentHTML('beforeend', pantsSize);
+    })
   }
 })
 
