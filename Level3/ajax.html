@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+</style>
+<body>
+ 
+  <script>
+    let products;
+
+    fetch('https://codingapple1.github.io/js/more1.json')
+    .then(res => res.json())
+    .then(function(data){
+      
+      data.forEach((elem, index) => {
+        let card = /*html*/`
+        <div class="container">
+          <div class="row">
+            <div>
+              <img src="https://via.placeholder.com/600" class="w-100">
+              <h5>${data[index].title}</h5>
+              <p>가격 : ${data[index].price}</p>
+            </div>
+          </div>
+        </div> 
+        `;
+        document.body.insertAdjacentHTML('beforeend', card);
+      });
+    }).catch(function(error){
+      console.log('실패');
+    })
+    
+  </script>
+</body>
+</html>
