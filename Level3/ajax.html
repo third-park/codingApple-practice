@@ -1,40 +1,85 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <style>
-
+  section {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+  }
 </style>
+
 <body>
- 
+  <section></section>
+  <button class="addButton" type="button">보여줘</button>
+  <button class="removeButton" type="button">로컬비우기</button>
+  <a href="cart.html">담은 카드 확인하기</a>
+
   <script>
     let products;
+    let cards;
 
-    fetch('https://codingapple1.github.io/js/more1.json')
-    .then(res => res.json())
-    .then(function(data){
-      
-      data.forEach((elem, index) => {
+    function cardGenerator(cardData, location) {
+      cardData.forEach((elem, index) => {
         let card = /*html*/`
-        <div class="container">
+        <div class="list-container">
           <div class="row">
             <div>
               <img src="https://via.placeholder.com/600" class="w-100">
-              <h5>${data[index].title}</h5>
-              <p>가격 : ${data[index].price}</p>
+              <h5>${cardData[index].title}</h5>
+              <p>가격 : ${cardData[index].price}</p>
             </div>
           </div>
         </div> 
         `;
-        document.body.insertAdjacentHTML('beforeend', card);
+        document.querySelector(location).insertAdjacentHTML('beforeend', card);
       });
-    }).catch(function(error){
+      cards = document.querySelectorAll('.list-container');
+    }
+
+    // fetch('https://codingapple1.github.io/js/more1.json')
+    // .then(res => res.json())
+    // .then(function (data) {
+    //   data.sort((a, b)=> a.price - b.price)
+    //   cardGenerator(data, 'section');
+    // }).catch(function (error) {
+    //   console.log('실패');
+    // })
+
+    document.querySelector('.addButton').addEventListener('click', () => {
+  fetch('https://codingapple1.github.io/js/more1.json')
+    .then(res => res.json())
+    .then(function (data) {
+      cardGenerator(data, 'section');
+      document.querySelector('section').addEventListener('click', (e) => {
+        const cardItem = e.target.closest('.row>div');
+        if (cardItem) {
+          const productName = cardItem.querySelector('h5').textContent;
+          const productPrice = cardItem.querySelector('p').textContent;
+          const productId = data.find(item => item.title === productName).id;
+
+          const productInfo = [productName, productPrice];
+          const jsonArray = JSON.stringify(productInfo);
+
+          localStorage.setItem(`product${productId}`, jsonArray);
+        }
+      });
+    }).catch(function (error) {
       console.log('실패');
     })
-    
+  document.querySelector('.addButton').style.pointerEvents = 'none';
+})
+
+    document.querySelector('.removeButton').addEventListener('click',()=>{
+      window.localStorage.clear();
+    })
+
   </script>
 </body>
+
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item-wrap{
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    .item-wrap>div{
+      width: fit-content;
+      margin: 10px 0 0 20px;
+      padding: 20px;
+      border: 1px solid #111;
+    }
+  </style>
+</head>
+<body>
+  <span>카드목록</span>
+  <div class="item-wrap"></div>
+
+  <script>
+    let keys = Object.keys(localStorage);
+
+    let localItem = keys.map(key => {
+      const jsonData = localStorage.getItem(key)
+      return JSON.parse(jsonData);
+    })
+
+    localItem.forEach((e)=>{
+      let div = `<div>카드명: ${e[0]} / ${e[1]}</div>`
+      document.querySelector('.item-wrap').insertAdjacentHTML('beforeend', div);
+    })
+  </script>
+</body>
+</html>
