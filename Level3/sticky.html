@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{box-sizing: border-box;}
+    .card-background {
+      height: 3000px;
+      margin-top: 800px;
+      margin-bottom: 1600px;
+    }
+
+    .card-box img {
+      display: block;
+      margin: auto;
+      max-width: 80%;
+    }
+
+    .card-box {
+      position: sticky;
+      top: 400px;
+      margin-top: 200px;
+      transition: opacity 100ms;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-background">
+    <div class="card-box">
+      <img src="./img/card1.png">
+    </div>
+    <div class="card-box">
+      <img src="./img/card2.png">
+    </div>
+    <div class="card-box">
+      <img src="./img/card3.png">
+    </div>
+  </div>
+ 
+  <script>
+    window.addEventListener('scroll',()=>{
+      console.log('window.scrollY',window.scrollY)
+      let opacityValue = -1/500 * scrollY + 115/50;
+      let opacityValue2 = -1/500 * scrollY + 3.8;
+      //1 = a * 1400 + b
+      //0 = a * 1900 + b 
+      let scaleValue = -1/5000 * scrollY + 565/500;
+      let scaleValue2 = -1/5000 * scrollY + 1.28;
+      let card = document.querySelectorAll('.card-box');
+
+      card[0].style.opacity = `${opacityValue}`
+      card[0].style.transform = `scale(${scaleValue})`;
+      card[1].style.opacity = `${opacityValue2}`
+      card[1].style.transform = `scale(${scaleValue2})`;
+    })
+  </script>
+</body>
+
+</html>
