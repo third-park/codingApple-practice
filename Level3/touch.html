@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .slide-container {
+      width: 300vw;
+    }
+    .slide-box {
+      width: 100vw;
+      float: left;
+    }
+    .slide-box img {
+      width: 100%;
+    }
+    button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      top: 300px;
+      border: none;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+  </style>
+  <script src="./js/touch.js" defer></script>
+</head>
+<body draggable="false">
+  <div style="overflow: hidden">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="../Level2/car1.png">
+      </div>
+      <div class="slide-box">
+        <img src="../Level2/car2.png">
+      </div>
+      <div class="slide-box">
+        <img src="../Level2/car3.png">
+      </div>
+    </div>
+  </div>
+  <button id="prevBtn">이전</button>
+  <button id="nextBtn">다음</button>
+
+</body>
+</html>
