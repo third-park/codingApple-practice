@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>웹개발기능예제</title>
   <link rel="stylesheet" href="./css/function.css">
   <script src="./js/function.js" defer></script>
+  <link rel="stylesheet" href="./css/function.css">
 </head>
+
 <body>
-  
+  <header>
+    <nav>
+      <h2>가구점에가구싶어</h2>
+      <a href="javascript:;">홈</a>
+      <a href="javascript:;">스토어</a>
+      <a href="javascript:;">견적</a>
+    </nav>
+  </header>
+  <main>
+    <section class="product-list">
+      <input type="text" placeholder="검색어 입력.">
+      <ul>
+        <li class="item" draggable="true">
+          <figure>
+            <img src="./img/card1.png" alt="식기세척기">
+            <figcaption>식기세척기</figcaption>
+          </figure>
+          <span class="company-name">세척나라</span>
+          <span class="price">가격: 10000</span>
+          <button class="add-btn" type="button">담기</button>
+        </li>
+        <li class="item" draggable="true">
+          <figure>
+            <img src="./img/card3.png" alt="침대프레임">
+            <figcaption>원목 침대 프레임</figcaption>
+          </figure>
+          <span class="company-name">침대나라</span>
+          <span class="price">가격: 20000</span>
+          <button class="add-btn" type="button">담기</button>
+        </li>
+      </ul>
+    </section>
+    <section class="cart-section">
+      <div class="drag-box"><span>여기로 드래그</span></div>
+    </section>
+    <div class="purchase-info">
+      <span>총액</span>
+      <span class="total-price">가격</span>
+      <button class="purchase-btn">구매하기</button>
+      <!-- 모달창 만들기 자바스크립트에서? -->
+      <form class="buyer-info" action="#">
+        <div>
+          <label for="name">성함</label>
+          <input type="text" id="name">
+        </div>
+        <div>
+          <label for="phone">연락처</label>
+          <input type="number" id="phone">
+        </div>
+        <button class="complete-btn" type="submit">입력완료</button>
+        <button class="close-btn" type="button">닫기</button>
+      </form>
+    </div>
+  </main>
+  <canvas id="canvas" width="400" height="400"></canvas>
 </body>
+
 </html>
