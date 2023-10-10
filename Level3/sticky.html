@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     *{box-sizing: border-box;}
     .card-background {
       height: 3000px;
       margin-top: 800px;
-      margin-bottom: 1600px;
+      margin-bottom: 800px;
     }
 
     .card-box img {
@@ -24,6 +25,13 @@
       top: 400px;
       margin-top: 200px;
       transition: opacity 100ms;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: blueviolet;
+      margin: 0 auto;
+      margin-bottom: 800px;
     }
   </style>
 </head>
@@ -40,7 +48,13 @@
       <img src="./img/card3.png">
     </div>
   </div>
+  <div class="box" data-aos="fade-up" data-aos-duration="1000">위로 올라가라</div>
+  <div class="box" data-aos="fade-right">옆에서 나와라</div>
  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <script>
     window.addEventListener('scroll',()=>{
       console.log('window.scrollY',window.scrollY)
