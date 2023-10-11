@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- <button id="버튼">버튼이에요</button> -->
+
+
+  <div style="display : none">모달창0</div>
+  <div style="display : none">모달창1</div>
+  <div style="display : none">모달창2</div>
+  <button>버튼0</button>
+  <button>버튼1</button>
+  <button>버튼2</button>
+
+  <script>
+    const 사람 = {
+      name: ["세명", "네명", "오명", "육명", "칠명", "팔명"],
+      sayHi: function(){
+        this.name.forEach((e)=>{
+          let 인사 = `안녕 나는 ${e}`
+          console.log(인사);
+        })
+      }
+    }
+
+    사람.sayHi()
+    
+    const 자료 = {
+      data: [1,2,3,4,5,6],
+      plus: plus
+    }
+    
+    function plus(){
+      let 얍 = 0;
+      예압 = this.data.forEach(e => 얍 += e)
+      console.log(얍);
+    }
+
+    자료.plus()
+
+    // document.getElementById('버튼').addEventListener('click', function(){
+    //   setTimeout(()=>{ console.log(this.innerHTML) }, 1000)
+    // });
+
+    let div = document.querySelectorAll('div')
+    let button = document.querySelectorAll('button')
+
+    const 버튼들 = {
+      박스: [div0, div1, div2] = [...div],
+      버튼: [button0, button1, button2] = [...button],
+      함수: function(){
+        this.버튼.forEach((btn, index)=>{
+          btn.addEventListener('click',()=>{
+            this.박스.forEach((e)=>e.style.display = "none")
+            this.박스[index].style.display = 'block';
+          });
+        });
+      }
+    }
+
+    버튼들.함수()
+  </script>
+</body>
+</html>

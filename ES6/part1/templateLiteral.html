@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+  <script>
+
+    let 이름 = "세명";
+    let 이름2 = "네명";
+
+    function 해체분석기(문자들, 변수들, 변수우) {
+      console.log('문자들', 문자들)
+      console.log('변수들', 변수들)
+      console.log('변수우', 변수우)
+    }
+
+    // 해체분석기`안녕 나는 ${이름}이야 ${이름2}`
+
+    let pants = 20;
+    let socks = 100;
+    `바지${pants} 양말${socks}`;
+
+    function change(text, ...variable){
+      console.log(text);
+      console.log(variable);
+      if(variable[0] === 0){
+        variable[0] = "바지다팔렸어요"
+      }
+      console.log(text[0] + variable[0] + text[1] + variable[1]);
+    }
+
+    change`바지${pants} 양말${socks}`
+
+  </script>
+</body>
+
+</html>
