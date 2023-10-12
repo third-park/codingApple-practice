@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getter/setter</title>
+</head>
+
+<body>
+
+  <script>
+    const person = {
+      name: 'semyeong',
+      age: 30,
+      set setAge(나이) {
+        this.age = parseInt(나이)
+      },
+      get nextAge() {
+        return this.age + 1
+      }
+    }
+
+    person.setAge = 56
+    console.log(person.age);
+    console.log(person.nextAge)
+  </script>
+</body>
+
+</html>

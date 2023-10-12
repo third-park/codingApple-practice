@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>use class</title>
+</head>
+<body>
+  
+  <script>
+    class grandfather{
+      constructor(성, 이름){
+        this.fatherName = 성;
+        this.name = 이름;
+      }
+      greeting(){
+        console.log(`hello ${this.name}`)
+      }
+      set nextAge(나이){
+        //나이를 입력하면 내년 나이가 나오도록 하자.
+        
+      }
+      get getAge(){
+        return 
+      }
+    }
+
+    class parents extends grandfather{
+      constructor(성, 이름){
+        super(성, 이름)
+      }
+      greeting(){
+        super.greeting();
+      }
+    }
+    
+    let cousin = new grandfather('park', 'yeon', 55)
+    let child = new parents('park', 'se-myeong', 20);
+
+  </script>
+</body>
+</html>
