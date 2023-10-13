@@ -9,25 +9,26 @@
   
   <script>
     class grandfather{
-      constructor(성, 이름){
+      constructor(성, 이름, 나이){
         this.fatherName = 성;
         this.name = 이름;
+        this.age = 나이
       }
       greeting(){
         console.log(`hello ${this.name}`)
       }
-      set nextAge(나이){
+      set setAge(나이){
         //나이를 입력하면 내년 나이가 나오도록 하자.
-        
+        typeof(나이) === 'number' ? this.age = 나이 : alert('숫자를 입력해주세요');
       }
-      get getAge(){
-        return 
+      get nextAge(){
+        return console.log(this.age + 1)
       }
     }
 
     class parents extends grandfather{
-      constructor(성, 이름){
-        super(성, 이름)
+      constructor(성, 이름, 나이){
+        super(성, 이름, 나이)
       }
       greeting(){
         super.greeting();

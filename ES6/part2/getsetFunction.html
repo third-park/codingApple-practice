@@ -10,20 +10,44 @@
 <body>
 
   <script>
-    const person = {
-      name: 'semyeong',
-      age: 30,
-      set setAge(나이) {
-        this.age = parseInt(나이)
-      },
-      get nextAge() {
-        return this.age + 1
+    class Unit{
+      constructor(at = 5, hp = 10){
+        this.attack = at;
+        this.health = hp;
+      }
+      set heal(point){
+       this.health += parseInt(point)
+      }
+      get battlePoint(){
+        return this.attack + this.health;
       }
     }
 
-    person.setAge = 56
-    console.log(person.age);
-    console.log(person.nextAge)
+    const marine = new Unit()
+    const firebet = new Unit(8, 15)
+    marine.heal = 20;
+    firebet.heal = 50;
+
+    console.log('marine health:', marine.health, 'marine battlePoint:',marine.battlePoint);
+    console.log('firebet health:', firebet.health, 'firebet battlePoint:',firebet.battlePoint);
+
+
+    const data = {
+      odd: [],
+      even: [],
+      setNumbers: function(...num){
+        console.log(num);
+        num.forEach((e)=>{
+          e % 2 === 1 ? this.odd.push(e) : this.even.push(e);
+        })
+      },
+      get numberOutput(){
+        return [...this.odd, ...this.even].sort((a,b)=> a - b)
+      }
+    }
+    data.setNumbers(4,2,8,9,6,3,1,5,7,88)
+    console.log(data.numberOutput)
+
   </script>
 </body>
 
