@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    let startNum = 2;
+    for (let firstNum of data) {
+      if (firstNum < startNum) continue;
+      for (let secondNum of data) {
+        let result = firstNum * secondNum;
+        // console.log(`${firstNum} X ${secondNum} = ${result}`);
+      }
+    }
+
+
+    //object key값 변경
+    const products = [
+      {
+        name1: 'chair',
+        price1: 7000,
+      },
+      {
+        name2: 'sofa',
+        price: 5000,
+      },
+      {
+        name1: 'desk',
+        price3: 9000,
+      },
+    ];
+
+    const updateObject = products.map(item=>{
+      const newItem = {};
+      Object.keys(item).forEach(key=>{
+        const lastChar = key.slice(-1);
+        if(!isNaN(parseInt(key.slice(-1)))){
+          const newKey = key.slice(0, -1);
+          newItem[newKey] = item[key]
+        } else {
+          newItem[key] = item[key]
+        };
+      })
+      return newItem
+    })
+    console.log(updateObject);
+
+  </script>
+</body>
+
+</html>

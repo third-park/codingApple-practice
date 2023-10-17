@@ -1,8 +1,9 @@
-const setPromise = new Promise((resolve, reject) => {
-  const calculate = (a, b, c) => a + b * a - c;
-  resolve(calculate(5, 10, 20));
-});
-
+function setPromise() {
+  return new Promise((resolve, reject) => {
+    const calculate = (a, b, c) => a + b * a - c;
+    resolve(calculate(5, 10, 20));
+  });
+}
 setPromise
   .then((result) => {
     setTimeout(() => {
