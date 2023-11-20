@@ -6,7 +6,12 @@
   <title>연습</title>
 
   <script type="module" src="./JS/app.js" defer></script>
+  <script src="./JS/event.js" defer></script>
 </head>
+<style>
+  .btns{width: 50vw;}
+  .btns>button{margin-right: 20px;margin-bottom:20px;padding: 30px;}
+</style>
 <body>
   <h1>
     <span>R</span>
@@ -17,5 +22,13 @@
     <span>O</span>
     <span>W</span>
   </h1>
+  <div class="btns"></div>
+  <form action="/">
+    <label for="forEvent">리스트 *누르면삭제</label>
+    <input type="text" id="forEvent">
+    <button class="addBtn" type="submit">추가</button>
+  </form>
+  <h3>리스트</h3>
+  <ul class="addList"></ul>
 </body>
 </html>
