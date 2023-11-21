@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scoreKeeper</title>
+  <script type="module" src="./JS/scoreKeeper.js" defer></script>
+</head>
+<style>
+  body{box-sizing: border-box;}
+  .winner{color: green}
+  .loser{color: red}
+  .container{width: 500px;margin: 0 auto;box-shadow: 0px 3px 8px #767676;}
+  figure{width: 100%;height: 200px;}
+  :where(.feature_name, .score, .playto_text){padding-left: 15px;}
+  .feature_name{font-weight: 700;border-bottom: 1px solid #767676;width: calc(100% - 15px);display: inline-block;padding-bottom: 10px;}
+  .score{margin: 10px 0 5px 0;}
+  .score>span:nth-child(2){font-size: 20px;}
+  .playto_text{font-weight: 700;margin: 5px 0 10px 0;display: inline-block;}
+  .btn_wraper{width: 100%;display: flex;flex-flow: row nowrap;justify-content: space-between;}
+  button[type='button']{width: calc(100% / 3);padding: 15px 0;color: #FFF;border: 0;border-radius: 3px;}
+  button[type='button']:active{opacity: 0.7;}
+  .add_playerOne{background: steelblue;}
+  .add_playerTwo{background-color: darkseagreen;}
+  .reset{background: tomato;}
+</style>
+<body>
+  <div class="container">
+    <figure>
+      <div class="bgImg"></div>
+      <figcaption></figcaption>
+    </figure>
+    <span class="feature_name">score keeper</span>
+    <h1 class="score">
+      <span class="playerOne">0</span>
+      <span>to</span>
+      <span class="playerTwo">0</span>
+    </h1>
+    <span class="playto_text">Playing To</span>
+    <select name="" id="playto">
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="8">8</option>
+      <option value="10">10</option>
+      <option value="12">12</option>
+      <option value="15">15</option>
+    </select>
+    <div class="btn_wraper">
+      <button type="button" class="add_playerOne">+1 to Player One</button>
+      <button type="button" class="add_playerTwo">+1 to Player Two</button>
+      <button type="button" class="reset">Reset</button>
+    </div>
+  </div>
+</body>
+</html>
