@@ -2,45 +2,34 @@ import { addClass, getNode, getNodes, removeClass } from '../../lib/index.js'
 
 const bgImg = getNode('.bgImg');
 const scoreWrap = getNode('.score');
-const scoreOne = getNode('.playerOne');
-const scoreTwo = getNode('.playerTwo');
 const btnWrap = getNode('.btn_wraper');
-const addPloneBtn = getNode('.add_playerOne');
-const addPltwoBtn = getNode('.add_playerTwo');
 const resetBtn = getNode('.reset');
 const winningScoreSelect = getNode('#playto');
 
 const span = document.createElement('span');
 
+const p1 = {
+  score: 0,
+  button: getNode('.add_playerOne'),
+  display: getNode('.playerOne'),
+  name: 'Player One',
+}
+const p2 = {
+  score: 0,
+  button: getNode('.add_playerTwo'),
+  display: getNode('.playerTwo'),
+  name: 'Player Two',
+}
 
-let score = 0;
-let twoScore = 0;
 let winningScore = 3;
-let isGameOver = false;
 
 resetBtn.addEventListener('click', reset)
 
 btnWrap.addEventListener('click',(e)=>{
   if(e.target.classList.contains('add_playerOne')){
-    score += 1;
-    scoreOne.textContent = score;
-    if(score === winningScore){
-      addClass(scoreOne, 'winner');
-      addClass(scoreTwo, 'loser');
-      winnerMsg('One');
-    }
+    updateScore(p1, p2);
   }else if(e.target.classList.contains('add_playerTwo')){
-    twoScore += 1;
-    scoreTwo.textContent = twoScore;
-    if(twoScore === winningScore){
-      addClass(scoreTwo, 'winner');
-      addClass(scoreOne, 'loser');
-      winnerMsg('Two');
-    }
-  }
-
-  if(score === winningScore || twoScore === winningScore){
-    disabledBtn();
+    updateScore(p2, p1);
   }
 })
 
@@ -49,33 +38,37 @@ winningScoreSelect.addEventListener('change', function(){
   reset();
 })
 
+function updateScore(player, opponent){
+  player.score += 1;
+  player.display.textContent = player.score;
+  if(player.score === winningScore){
+    addClass(player.display, 'winner');
+    addClass(opponent.display, 'loser');
+    winnerMsg(player.name);
+    disabledBtn();
+  }
+}
+
 function reset(){
-  score = 0;
-  scoreOne.textContent = score;
-  twoScore = 0;
-  scoreTwo.textContent = twoScore;
-
-  addPloneBtn.removeAttribute('disabled');
-  addPltwoBtn.removeAttribute('disabled');
-
-  addPloneBtn.style.opacity = '';
-  addPltwoBtn.style.opacity = '';
-
-  removeClass(scoreOne);
-  removeClass(scoreTwo);
-
+  for(let player of [p1, p2]){
+    player.score = 0;
+    player.display.textContent = player.score;
+    player.button.removeAttribute('disabled');
+    player.button.style.opacity = '';
+    removeClass(player.display);
+  }
   span.remove();
 }
 
 function disabledBtn(){
-  addPloneBtn.setAttribute('disabled', true);
-  addPltwoBtn.setAttribute('disabled', true);
-  addPloneBtn.style.opacity = '0.7';
-  addPltwoBtn.style.opacity = '0.7';
+  for(let player of [p1, p2]){
+    player.button.setAttribute('disabled', true);
+    player.button.style.opacity = '0.7';
+  }
 }
 
 function winnerMsg(player){
-  span.textContent = `winner is Player ${player}`;
+  span.textContent = `winner is ${player}`;
   span.style.fontSize = '15px';
   scoreWrap.insertAdjacentElement('beforeend', span);
 }
