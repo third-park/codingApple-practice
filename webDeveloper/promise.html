@@ -4,9 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>promise practice</title>
-  <script src="./JS/promise.js" defer></script>
+  <!-- <script src="./JS/promise.js" defer></script> -->
+  <script src="./JS/ajax.js" defer></script>
 </head>
+<style>
+  span{color: #FFF;padding: 10px;}
+  button{border: none;border-radius: 5px;}
+  .create-gag{background-color: slategray;padding: 15px;color: #FFF;}
+  .gag-wrap{border: 1px solid black;width: fit-content;border-radius: 5px;background-color: dimgray;}
+  .openAnswer{padding: 10px;background-color: dimgray;color: #FFF;}
+</style>
 <body>
-  
+  <h1>아재개그 생성기</h1>
+  <button class="create-gag" type="button">문제생성</button>
+  <h2 class="question">여기</h2>
+  <div class="gag-wrap">
+    <button class="openAnswer">정답</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>
