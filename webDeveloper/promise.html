@@ -8,20 +8,31 @@
   <script src="./JS/ajax.js" defer></script>
 </head>
 <style>
-  span{color: #FFF;padding: 10px;}
-  button{border: none;border-radius: 5px;}
+  section span{color: #FFF;padding: 10px;}
+  section button{border: none;border-radius: 5px;}
   .create-gag{background-color: slategray;padding: 15px;color: #FFF;}
   .gag-wrap{border: 1px solid black;width: fit-content;border-radius: 5px;background-color: dimgray;}
   .openAnswer{padding: 10px;background-color: dimgray;color: #FFF;}
+  .title{margin-top: 100px;}
+  .mvList{display: flex;gap: 1.25rem;flex-flow: row wrap;}
+  .mvItem{background-color: #003926;color: #FFF;padding:10px;border-radius: 5px;}
 </style>
 <body>
-  <h1>아재개그 생성기</h1>
-  <button class="create-gag" type="button">문제생성</button>
-  <h2 class="question">여기</h2>
-  <div class="gag-wrap">
-    <button class="openAnswer">정답</button>
-  </div>
+  <section>
+    <h1>아재개그 생성기</h1>
+    <button class="create-gag" type="button">문제생성</button>
+    <h2 class="question">여기</h2>
+    <div class="gag-wrap">
+      <button class="openAnswer">정답</button>
+    </div>
+  </section>
 
+  <h2 class="title">영화검색</h2>
+  <form action="#" id="searchForm">
+    <input type="text" placeholder="movie search" name="query">
+    <button type="submit">search</button>
+  </form>
+  <div class="mvList"></div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>
