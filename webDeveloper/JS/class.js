@@ -64,6 +64,10 @@ class Pet {
 }
 
 class Cat extends Pet {
+  constructor(name, age, master){
+    super(name, age)
+    this.master = master;
+  }
   meow(){
     return `meoww!`
   }
