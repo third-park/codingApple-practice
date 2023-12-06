@@ -1,32 +1,24 @@
 const express = require('express');
-const app = express()
+// const path = require('path');
+const app = express();
 
-// app.use((req, res)=>{
-//   console.log("받았다 요청");
-//   res.send(`<h1>사이트 오픈</h1>`);
-// })
+// app.set('views', path.join(__dirname, '../firstApp/views'));
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res)=>{
-	res.send('my first page');
-})
-app.get('/u/:route/:id', (req, res)=>{
-	const { route, id } =  req.params;
-	res.send(`<h1>view Id=${id}, in ${route} page</h1>`);
-})
-app.post('/cats', (req, res)=>{
-	res.send('post requerst');
-})
-app.get('/cats', (req, res)=>{
-	res.send('cats meow');
-})
-app.get('/dogs', (req, res)=>{
-	res.send('dogs barrrk!');
+  res.render('home');
 })
 
-app.get('*', (req, res)=>{
-  res.send(`<h1 style={color: red;}>sorry. This URL is not available</h1>`);
+app.get('/r/:post', (req, res)=>{
+  const { post } = req.params;
+  res.render('post', { post: post })
+})
+
+app.get('/rand', (req, res)=>{
+  const num = Math.floor(Math.random() * 10) + 1;
+  res.render('random', {num: num});
 })
 
 app.listen(3000, ()=>{
-  console.log("port 3000");
+  console.log(`3000번 포트 서버를 읽습니다.`);
 })
