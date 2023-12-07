@@ -1,0 +1,12 @@
+a{text-decoration: none;}
+li{list-style: none;}
+body {box-sizing: border-box;margin: 0;list-style: none;text-decoration: none;}
+article{border: 1px solid #000;width: 800px;padding: 40px;margin-top: 40px;}
+img{width: 400px;height:400px;object-fit: cover;object-position: center;}
+
+.navbar{width: 100vw;height: 80px;background: slateblue;padding-left: 20px;}
+.container{width: clamp(50%, 1280px, 100%);height: 100%;display: flex;align-items: center;}
+.navbar-brand{flex-grow: 1;}
+.navbar-collapse{flex-grow: 3;}
+.navbar-nav{display: flex;flex-flow: row nowrap;justify-content: space-evenly;}
+.navbar-nav a{color: #FFF;padding: 8px;}

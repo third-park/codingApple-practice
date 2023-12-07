@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= post %></title>
-</head>
-<body>
-  <h1>this page is <%= post%> post</h1>
-</body>
-</html>
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+  <h1>this page is <%= name %>'s post</h1>
+  <h2 class="description"><%= description %></h2>
+  <p><%= subscribers %> total Subscribers</p>
+  <hr>
+  <% for(let post of posts){ %>
+    <article>
+      <p><%= post.title %> - <b><%= post.author %></b></p>
+      <% if(post.img) { %>
+        <img src="<%= post.img %>" alt="">
+      <% } %>
+    </article>
+  <% } %>
+  <%- include('partials/footer') %>
