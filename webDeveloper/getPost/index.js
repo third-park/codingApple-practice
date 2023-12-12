@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const { v4: uuid } = require('uuid');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -10,22 +11,22 @@ app.set('view engine', 'ejs');
 
 const comments = [ //comments 를 기본경로로 해서 쌓아가믄 된다
   {
-    id:1,
+    id:uuid(),
     username:'Abc',
     comment:'im Engligh',
   },
   {
-    id:2,
+    id:uuid(),
     username:'Def',
     comment:'scareeee',
   },
   {
-    id:3,
+    id:uuid(),
     username:'Ghiz',
     comment:'glezz to beo odkals',
   },
   {
-    id:4,
+    id:uuid(),
     username:'Klmn',
     comment:'gotnen takks outbetuzen',
   },
@@ -41,13 +42,13 @@ app.get('/comments/new', (req, res)=>{
 
 app.post('/comments', (req, res)=>{
   const { username, comment } = req.body;
-  comments.push({ username, comment });
+  comments.push({ id: uuid(), username, comment });
   res.redirect('/comments');
 })
 
 app.get('/comments/:id', (req, res)=>{
   const { id } = req.params;
-  const comment = comments.find(e => e.id === +id);
+  const comment = comments.find(e => e.id === id);
   res.render('comments/show', { comment });
 }) 
 
