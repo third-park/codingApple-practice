@@ -12,11 +12,15 @@
   
   <div class="white-bg">
     <% for(let i=0;i<글목록.length;i++) { %>
-    <div class="list-box">
-      <h4><%= 글목록[i].title %></h4>
-      <p><%= 글목록[i].content %></p>
+    <div style="position: relative;">
+      <a class="list-box" href="/detail/<%= 글목록[i]._id %>">
+        <h4><%= 글목록[i].title %></h4>
+        <p><%= 글목록[i].content %></p>
+      </a>
+      <a class="edit-btn" href="/edit/<%= 글목록[i]._id %>">글 수정</a>
     </div>
     <% } %>
-  </div> 
+  </div>
+  <button class="write" onclick="location.href='/write'">글쓰기</button> 
 </body>
 </html>

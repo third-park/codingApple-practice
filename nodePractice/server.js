@@ -1,4 +1,4 @@
-const { MonfoClient, MongoClient } = require('mongodb');
+const { MonfoClient, MongoClient, ObjectId } = require('mongodb');
 
 const express = require('express');
 const app = express();
@@ -34,23 +34,44 @@ new MongoClient(url).connect().then(client => {
     res.render('write.ejs')
   })
 
-  app.post('/add', (req, res) => {
+  app.post('/add', async(req, res) => {
     //작성한 글 서버로 보내기
-    //글 들어왔는 지 확인
-    console.log(req.body);
+    
     //DB에 저장
     if(req.body.title === '' || req.body.content === ''){
       res.send('제목과 내용을 모두 적어주세요.');
     }else{
       try {
-        db.collection('post').insertOne({ title: req.body.title, content: req.body.content}) //자료추가
-        res.redirect('/list');
+        if(req.body.title === '' || req.body.content === ''){
+          res.send('내용을 모두 입력하세요.');
+        }else{
+          await db.collection('post').insertOne({ title: req.body.title, content: req.body.content}) //자료추가
+          res.redirect('/list');
+        }
       } catch (error) {
         res.send('error');
       }
     }
   })
 
+  app.get('/detail/:id', async (req, res)=>{
+    let result = await db.collection('post').findOne({ _id: new ObjectId(req.params.id) })
+    res.render('detail.ejs', { data: result });
+  })
+
+  app.get('/edit/:id', async (req, res)=>{
+    let result = await db.collection('post').findOne({ _id: new ObjectId(req.params.id) })
+    res.render('edit.ejs', {data: result });
+  })
+
+  app.post('/edit', async (req, res)=>{
+    try {
+      await db.collection('post').updateOne( {_id: new ObjectId(req.body.id)}, {$set: { title: req.body.title, content: req.body.content }})
+      res.redirect('/list');
+    } catch (error) {
+      res.send(error);
+    }
+  })
 
   app.get('/time', (req, res) => {
     res.render('time.ejs', {date: new Date()})

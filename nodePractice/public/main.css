@@ -23,8 +23,11 @@ body {
   border-radius: 5px;
 }
 .list-box {
+  display: block;
   padding : 10px;
   border-bottom: 1px solid#eee;
+  text-decoration: none;
+  position: relative;
 }
 .list-box h4{
   font-size: 16px;
@@ -34,6 +37,19 @@ body {
   font-size: 13px;
   margin: 5px;
   color: grey;
+}
+
+.edit-btn{
+  background-color: #FFf;
+  border: 1px solid #767676;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 100;
+  text-decoration: none;
 }
 
 input,div {
