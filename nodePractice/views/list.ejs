@@ -18,9 +18,28 @@
         <p><%= 글목록[i].content %></p>
       </a>
       <a class="edit-btn" href="/edit/<%= 글목록[i]._id %>">글 수정</a>
+      <span class="delete" data-id="<%= 글목록[i]._id %>">글삭제</span>
     </div>
     <% } %>
   </div>
-  <button class="write" onclick="location.href='/write'">글쓰기</button> 
+  <button class="write" onclick="location.href='/write'">글쓰기</button>
+  <div class="pagination">
+    <a href="/list/1">1</a>
+    <a href="/list/2">2</a>
+    <a href="/list/3">3</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+  <script>
+    let deleteBtn = document.querySelectorAll('.delete');  
+    deleteBtn.forEach(e => {
+      e.addEventListener('click', e=>{
+        axios.delete('/delete?docid=' + e.target.dataset.id).then(r=>{
+          e.target.parentElement.style.display = 'none';
+        }).catch(error=>{console.log(error)});
+      })
+    })
+
+  </script>
 </body>
 </html>

@@ -73,6 +73,16 @@ new MongoClient(url).connect().then(client => {
     }
   })
 
+  app.delete('/delete', async (req, res)=>{
+    let result = await db.collection('post').deleteOne({ _id: new ObjectId(req.query.docid) })
+    res.send('삭제완료')
+  })
+
+  app.get('/list/:id', async (req, res)=>{
+    let result = await db.collection('post').find().skip((req.params.id - 1) * 5).limit(5).toArray()
+    res.render('list.ejs', { 글목록: result })
+  })
+
   app.get('/time', (req, res) => {
     res.render('time.ejs', {date: new Date()})
   })

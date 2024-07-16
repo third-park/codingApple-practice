@@ -52,6 +52,15 @@ body {
   text-decoration: none;
 }
 
+.delete{
+  background-color: #FFF;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+}
+
 input,div {
   box-sizing: border-box;
 }
